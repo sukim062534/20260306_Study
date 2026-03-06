@@ -5,6 +5,30 @@
 
 using namespace std;
 
+string DrawShape(int CardNumber)
+{
+	int Shape = (CardNumber % 13 + 1);
+
+	if (Shape == 11)
+	{
+		return "J";
+	}
+	else if (Shape == 12)
+	{
+		return "Q";
+	}
+	else if (Shape == 13)
+	{
+		return "K";
+	}
+	else if (Shape == 1)
+	{
+		return "A";
+	}
+
+	return to_string(Shape);
+}
+
 int main()
 {
 
@@ -99,7 +123,7 @@ int main()
 	{
 		int CardTypeIndex = ComputerCard[i] / 13;
 
-		cout << CardType[CardTypeIndex] << " " << ComputerScore[i] << endl;
+		cout << CardType[CardTypeIndex] << " " << DrawShape(ComputerCard[i]) << endl;
 	}
 	cout << "Total : " << TotalComputerScore << endl;
 	cout << "==========================\n" << endl;
@@ -110,7 +134,7 @@ int main()
 	{
 		int CardTypeIndex = PlayerCard[i] / 13;
 
-		cout << CardType[CardTypeIndex] << " " << PlayerScore[i] << endl;
+		cout << CardType[CardTypeIndex] << " " << DrawShape(PlayerCard[i]) << endl;
 	}
 	cout << "Total : " << TotalPlayerScore << endl;
 	cout << "==========================" << endl;
